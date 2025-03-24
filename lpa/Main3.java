@@ -1,7 +1,7 @@
 package dev.lpa;
 import java.util.Scanner;
 
-public class ain3 {
+public class Main3 {
     public static void main(String... args) {
 //        long  a=0;
 //        long  b=0;
