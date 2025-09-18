@@ -10,6 +10,7 @@ public class Main215 {
             long x=sc.nextLong();
             long y=sc.nextLong();
             System.out.println(paint(n,x,y)?"YES":"NO");
+
         }
     }
     public static boolean paint(long n, long x, long y){
