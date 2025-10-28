@@ -29,6 +29,6 @@ public class Main254 {
             }
 
             System.out.println(possible ? "YES" : "NO");
-        }
+            }
     }
 }
