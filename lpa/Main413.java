@@ -3,7 +3,7 @@ import java.util.*;
 public class Main413 {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
-        Employee[] employee=new Employee[4];
+        Employee2[] employee2 =new Employee2[4];
         for (int i = 0; i < 4; i++) {
             int id=sc.nextInt();
             sc.nextLine();
@@ -12,18 +12,18 @@ public class Main413 {
             sc.nextLine();
             String des=sc.nextLine();
             String skill=sc.nextLine();
-            employee[i]=new Employee(id,name,salary,des,skill);
+            employee2[i]=new Employee2(id,name,salary,des,skill);
         }
         String designation=sc.nextLine();
         String skill=sc.nextLine();
 
-        double ans=findAvgSalaryByDesignation(employee,designation);
+        double ans=findAvgSalaryByDesignation(employee2,designation);
         System.out.println(ans>0?ans:"No employees found");
-        Employee[] e2=searchEmployeeBySkill(employee,skill);
+        Employee2[] e2=searchEmployeeBySkill(employee2,skill);
         if (e2.length==0){
             System.out.println("No employees with given skill");
         }else{
-            for (Employee value : e2) {
+            for (Employee2 value : e2) {
                 System.out.println(value.getEmpId());
             }
         }
@@ -31,38 +31,38 @@ public class Main413 {
 
     }
 
-    public static double findAvgSalaryByDesignation(Employee[] emp, String designation){
+    public static double findAvgSalaryByDesignation(Employee2[] emp, String designation){
         int count=0;
         double sum=0;
-        for (Employee employee : emp) {
-            if (employee.getDesignation().equalsIgnoreCase(designation)) {
+        for (Employee2 employee2 : emp) {
+            if (employee2.getDesignation().equalsIgnoreCase(designation)) {
                 count++;
-                sum += employee.getSalary();
+                sum += employee2.getSalary();
             }
         }
         return count==0?0:sum/count;
     }
-    public static Employee[] searchEmployeeBySkill(Employee[] emp, String skill){
-        List<Employee> list=new ArrayList<>();
+    public static Employee2[] searchEmployeeBySkill(Employee2[] emp, String skill){
+        List<Employee2> list=new ArrayList<>();
         for (int i = 0; i < emp.length; i++) {
             if(emp[i].getSkill().equalsIgnoreCase(skill)){
                 list.add(emp[i]);
             }
         }
         list.sort((a,b)->Double.compare(a.getSalary(),b.getSalary()));
-        return list.toArray(new Employee[0]);
+        return list.toArray(new Employee2[0]);
     }
 }
 
 
-class Employee{
+class Employee2 {
     private int empId;
     private String empName;
     private double salary;
     private String designation;
     private String skill;
 
-    public Employee(int empId, String empName, double salary, String designation, String skill) {
+    public Employee2(int empId, String empName, double salary, String designation, String skill) {
         this.empId = empId;
         this.empName = empName;
         this.salary = salary;
