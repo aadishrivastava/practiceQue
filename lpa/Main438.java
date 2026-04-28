@@ -11,6 +11,7 @@ public class Main438 {
             for (int i = 0; i < 8; i++) {
                 s[i]=sc.next();
             }
+            outer:
             for (int i = 1; i < 7; i++) {
                 for (int j = 1; j < 7; j++) {
                     if (s[i].charAt(j) == '#' &&
@@ -20,7 +21,9 @@ public class Main438 {
                             s[i+1].charAt(j+1) == '#') {
 
                         System.out.println((i+1) + " " + (j+1));
+                        break outer;
                     }
+
                 }
             }
 
